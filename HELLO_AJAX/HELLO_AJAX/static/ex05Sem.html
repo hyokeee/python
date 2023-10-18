@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table{
+	text-align : center;
+}
+.btn{
+	width : 40px;
+}
+
+#it{
+	text-align: right;
+}
+</style>
+<script>
+
+function btn_click(obj){
+	var obj_it = document.querySelector('#it');
+	var str_new = obj.value;
+	var str_old = obj_it.value;
+	obj_it.value = str_old + str_new;
+}
+
+function my_click(){
+	var td = document.querySelector('#it');
+	alert("calling...\n" + td.value);
+}
+</script>
+</head>
+<body>
+EX05
+<table border="1">
+	<tr>
+		<td colspan="3">
+			<input id="it"/>
+		</td>
+	</tr>
+	<tr>
+		<td><input class="btn" type="button" value="1" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="2" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="3" onclick="btn_click(this)"/></td>
+	</tr>
+	<tr>
+		<td><input class="btn" type="button" value="4" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="5" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="6" onclick="btn_click(this)"/></td>
+	</tr>
+	<tr>
+		<td><input class="btn" type="button" value="7" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="8" onclick="btn_click(this)"/></td>
+		<td><input class="btn" type="button" value="9" onclick="btn_click(this)"/></td>
+	</tr>
+	<tr>
+		<td><input class="btn" type="button" value="0" onclick="btn_click(this)"/></td>
+		<td colspan="2">
+			<input type="button" value="CALL" onclick="my_click()"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

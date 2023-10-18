@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+function my_click(){
+	$('.it').val($('.it').val()*2);
+}
+$(document).ready(function(){
+	$('#btn').bind("click",function(){
+		my_click();
+	});
+});
+	
+
+</script>
+</head>
+<body>
+EX02
+<input class="it" type="text" value="100"/>
+<input type="button" id="btn" value="DOUBLE"/>
+</body>
+</html>

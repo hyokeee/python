@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function fn_mod_act(){
+	document.frm.submit();
+}
+</script>
+</head>
+<body>
+MEM_MOD
+<form action="mem_mod_act" name="frm" method="post">
+{% csrf_token %}
+	<table border="1">
+		<tr>
+			<th>회원번호</th>
+			<td><input type="text" name="m_id" value="{{mem.M_ID}}" readonly/></td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="m_nm" value="{{mem.M_NM}}"/></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="text" name="tel" value="{{mem.TEL}}"/></td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td><input type="text" name="address" value="{{mem.ADDRESS}}"/></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="저장" onclick = "fn_mod_act()"/>
+				
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

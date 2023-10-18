@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function my_click(){
+	var tds = document.querySelectorAll('.my_td');
+	
+	// 배열 생성
+	var arr = [];
+	for (let i =1; i<=45; i++){
+		arr.push(i);
+	}
+	for (let j = 1; j<=100; j++){
+		let rnd = parseInt(Math.random()*45);
+		let temp = arr[0];
+		arr[0] = arr[rnd];
+		arr[rnd] = temp;
+	}
+	for (let i = 0; i<=5; i++){
+		tds[i].innerHTML = arr[i];
+	}
+	
+}
+</script>
+</head>
+<body>
+EX03
+<table border="1">
+	<tr>
+		<td class="my_td">__</td>
+		<td class="my_td">__</td>
+		<td class="my_td">__</td>
+		<td class="my_td">__</td>
+		<td class="my_td">__</td>
+		<td class="my_td">__</td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<input type="button" value="로또생성하기" onclick="my_click()"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

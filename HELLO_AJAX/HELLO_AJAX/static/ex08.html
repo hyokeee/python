@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#it{
+	width : 40px;
+}
+
+#my_div{
+	height : 300px;
+}
+</style>
+<script>
+var com = [];
+function myinit(){
+// 컴퓨터 숫자 생성
+var arr = []
+for(let i = 1; i<=9; i++){
+	arr.push(i);
+}
+for(let i = 0; i<100; i++){
+	let rnd = parseInt(Math.random()*9);
+	let temp = arr[0];
+	arr[0] = arr[rnd];
+	arr[rnd] = temp;
+}
+
+com.push(arr[0]);
+com.push(arr[1]);
+com.push(arr[2]);
+console.log(com)
+}
+
+// 맞춰보기 버튼 클릭 함수
+function my_click(){
+	
+	var myarr = []
+	var it = document.querySelector('#it').value;
+	myarr.push(it.substring(0,1))
+	myarr.push(it.substring(1,2))
+	myarr.push(it.substring(2,3))
+	
+	var strike = getStrike(myarr,com);
+    var ball = getBall(myarr,com);
+    /*
+    console.log("나"+myarr);
+    console.log("컴"+com);
+    console.log("S"+strike);
+    console.log("B"+ball); 
+    */
+    var old_str = document.querySelector('#my_div').innerHTML;
+    var new_str = it + "  " + strike+"S "+ ball+"B"+"<br/>"+old_str;
+    document.querySelector('#my_div').innerHTML = new_str;
+    document.querySelector('#it').value = "";
+    if(strike == 3){
+    	 setTimeout(function(){
+    		alert(it+"\n정답입니다!!!");
+    	},1); 
+    }
+}
+
+
+// 스트라이크 갯수 얻는 함수
+function getStrike(mine,com){
+	let cnt = 0;
+	if(mine[0]==com[0]){
+		cnt += 1;
+	}
+	if(mine[1]==com[1]){
+		cnt += 1;
+	}
+	if(mine[2]==com[2]){
+		cnt += 1;
+	}
+	return cnt;
+}
+// 볼 갯수 얻는 함수
+function getBall(mine,com){
+	let cnt = 0;
+	if(mine[0]==com[1] || mine[0]==com[2]){
+		cnt += 1;
+	}
+	if(mine[1]==com[0] || mine[1]==com[2]){
+		cnt += 1;
+	}
+	if(mine[2]==com[0] || mine[2]==com[1]){
+		cnt += 1;
+	}
+	return cnt;
+}
+</script>
+</head>
+<body onload="myinit()">
+EX08
+<table border="1">
+	<tr>
+		<td>스트라이크</td>
+		<td><input id="it"/></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="맞춰보기" onclick="my_click()"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div id="my_div"></div>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

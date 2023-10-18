@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input[name='it_first'], input[name="it_last"]{
+	width : 40px;
+}
+
+#ta{
+	height : 200px;
+}
+	
+</style>
+<script>
+function my_click(){
+	var first = document.querySelector('input[name="it_first"]').value;
+	var last = document.querySelector('input[name="it_last"]').value;
+	var it_first = parseInt(first);
+	var it_last = parseInt(last);
+	var code = ""
+	for (let i = it_first; i<=last; i++){
+		for (let j = 1; j<= i; j++){
+			code += "*"	
+		}
+		code += "\n"
+	}
+	var ta = document.querySelector('#ta');
+	ta.value = code;
+}
+</script>
+</head>
+<body>
+EX06
+<table border="1">
+	<tr>
+		<td>시작별수 : </td>
+		<td>
+			<input name="it_first"/>
+		</td>
+	</tr>
+	<tr>
+		<td>끝별수 : </td>
+		<td>
+			<input name="it_last"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="별출력하기" onclick="my_click()"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<textarea id="ta" ></textarea>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
